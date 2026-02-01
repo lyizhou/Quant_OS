@@ -1,0 +1,13 @@
+{
+  "name": "quant-os-portfolio",
+  "version": "1.0.0",
+  "description": "Manage A-share stock portfolio",
+  "api_url": "http://localhost:8000",
+  "requires_auth": true,
+  "endpoints": {
+    "list": "/api/portfolio",
+    "add": "/api/portfolio",
+    "update": "/api/portfolio/{id}",
+    "delete": "/api/portfolio/{id}"
+  }
+}

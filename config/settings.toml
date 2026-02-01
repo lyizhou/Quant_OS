@@ -1,0 +1,34 @@
+# Quant_OS v2.0 Configuration
+
+[system]
+version = "2.0.0"
+debug = false
+
+[mapping]
+# Correlation threshold for mapping US stocks to Chinese stocks
+correlation_threshold = 0.8
+# Window for correlation calculation (in days)
+correlation_window = 60
+
+[risk]
+# Kelly formula parameters
+max_position_size = 0.25  # Maximum 25% of portfolio in single position
+default_edge = 0.55       # Default win rate estimate
+default_odds = 2.0        # Default reward-to-risk ratio
+max_drawdown = 0.15       # Maximum allowed drawdown (15%)
+
+[narrative]
+# DeepSeek API settings
+api_timeout = 30          # API timeout in seconds
+max_tokens = 2000         # Max tokens for generation
+temperature = 0.7         # Temperature for generation
+
+[data]
+# Data refresh intervals
+market_data_refresh = 300    # 5 minutes
+narrative_refresh = 1800     # 30 minutes
+correlation_refresh = 86400  # 24 hours
+
+[telegram]
+bot_enabled = false  # Set to true to enable Telegram bot
+update_interval = 60  # Check for updates every 60 seconds

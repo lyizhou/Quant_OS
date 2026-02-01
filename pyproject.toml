@@ -1,0 +1,93 @@
+[project]
+name = "quant-os"
+version = "2.0.0"
+description = "AI-powered A-share portfolio management with multi-platform support via OpenClaw"
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    # Core framework
+    "loguru>=0.7.2",
+    "python-dotenv>=1.2.1",
+    # HTTP API
+    "fastapi>=0.115.0",
+    "uvicorn[standard]>=0.32.0",
+    "python-multipart>=0.0.12",
+    "slowapi>=0.1.9",
+    # Database & data processing
+    "duckdb>=1.4.3",
+    "pandas>=2.3.3",
+    "numpy>=2.0.0",
+    # Market data
+    "tushare>=1.4.24",
+    # AI services
+    "zhipuai>=1.0.7",
+    "perplexityai>=0.23.0",
+    # Technical analysis & visualization
+    "matplotlib>=3.10.8",
+    "pillow>=12.1.0",
+    # Network
+    "httpx>=0.28.1",
+    "openai>=1.0.0",
+    # Search
+    "duckduckgo-search>=8.1.1",
+    "requests>=2.32.5",
+    "openpyxl>=3.1.5",
+    "tavily-python>=0.7.19",
+    "plotly>=6.5.2",
+    "kaleido>=1.2.0",
+]
+
+[dependency-groups]
+dev = [
+    "pytest>=8.0.0",
+    "pytest-asyncio>=0.23.0",
+    "ruff>=0.8.0",
+    "mypy>=1.8.0",
+    "psutil>=7.2.1",
+]
+
+[project.scripts]
+quant-os-api = "core.app.api.main:start"
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.wheel]
+packages = ["core"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+python_files = ["test_*.py"]
+python_classes = ["Test*"]
+python_functions = ["test_*"]
+asyncio_mode = "auto"
+
+[tool.ruff]
+line-length = 100
+target-version = "py312"
+
+[tool.ruff.lint]
+select = [
+    "E",   # pycodestyle errors
+    "W",   # pycodestyle warnings
+    "F",   # pyflakes
+    "I",   # isort
+    "B",   # flake8-bugbear
+    "C4",  # flake8-comprehensions
+    "UP",  # pyupgrade
+]
+ignore = [
+    "E501",  # line too long (handled by formatter)
+    "B008",  # do not perform function calls in argument defaults
+]
+
+[tool.ruff.lint.isort]
+known-first-party = ["app", "drivers"]
+
+[tool.mypy]
+python_version = "3.12"
+warn_return_any = true
+warn_unused_configs = true
+disallow_untyped_defs = false
+ignore_missing_imports = true

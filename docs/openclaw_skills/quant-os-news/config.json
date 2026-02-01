@@ -1,0 +1,10 @@
+{
+  "name": "quant-os-news",
+  "version": "1.0.0",
+  "description": "Search news for A-share stocks",
+  "api_url": "http://localhost:8000",
+  "requires_auth": true,
+  "endpoints": {
+    "search": "/api/news"
+  }
+}

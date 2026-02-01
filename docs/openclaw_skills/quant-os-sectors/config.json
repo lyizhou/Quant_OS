@@ -1,0 +1,12 @@
+{
+  "name": "quant-os-sectors",
+  "version": "1.0.0",
+  "description": "Manage stock sectors and classifications",
+  "api_url": "http://localhost:8000",
+  "requires_auth": true,
+  "endpoints": {
+    "list": "/api/sectors",
+    "create": "/api/sectors",
+    "stocks": "/api/sectors/{id}/stocks"
+  }
+}

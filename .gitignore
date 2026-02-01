@@ -1,0 +1,29 @@
+# Python & UV
+__pycache__/
+*.pyc
+.venv/
+.uv/
+*.egg-info/
+
+# Environment Variables (CRITICAL)
+.env
+
+# Data
+Data/*.duckdb
+Data/logs/
+data/
+core/data/db/*.duckdb
+core/data/temp/
+
+# Problematic files
+nul
+
+# Subprojects (TrendRadar has its own git repo)
+drivers/trendradar/
+
+# IDE
+.vscode/
+.idea/
+
+# Claude Code settings
+.claude/

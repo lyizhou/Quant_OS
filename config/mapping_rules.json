@@ -1,0 +1,51 @@
+{
+  "mapping_rules": {
+    "TSLA": {
+      "cn_stock": "002920.SZ",
+      "cn_name": "德赛西威",
+      "industry": "Automotive",
+      "correlation": 0.85,
+      "notes": "Tesla supplier, autonomous driving partnership"
+    },
+    "AAPL": {
+      "cn_stock": "000858.SZ",
+      "cn_name": "五粮液",
+      "industry": "Technology",
+      "correlation": 0.72,
+      "notes": "Supply chain partner, consumer electronics"
+    },
+    "NVDA": {
+      "cn_stock": "002371.SZ",
+      "cn_name": "北方华创",
+      "industry": "Semiconductor",
+      "correlation": 0.78,
+      "notes": "GPU/AI chip ecosystem partner"
+    },
+    "AMZN": {
+      "cn_stock": "601888.SH",
+      "cn_name": "中国中免",
+      "industry": "E-commerce",
+      "correlation": 0.65,
+      "notes": "Cross-border e-commerce trends"
+    },
+    "MSFT": {
+      "cn_stock": "300033.SZ",
+      "cn_name": "同花顺",
+      "industry": "Software",
+      "correlation": 0.70,
+      "notes": "Cloud and software services"
+    }
+  },
+  "industry_mappings": {
+    "Automotive": ["TSLA", "002920.SZ"],
+    "Semiconductor": ["NVDA", "002371.SZ"],
+    "Technology": ["AAPL", "000858.SZ"],
+    "E-commerce": ["AMZN", "601888.SH"],
+    "Software": ["MSFT", "300033.SZ"]
+  },
+  "metadata": {
+    "version": "1.0",
+    "last_updated": "2025-01-17",
+    "data_source": "manual"
+  }
+}

@@ -1,0 +1,12 @@
+{
+  "name": "quant-os-market",
+  "version": "1.0.0",
+  "description": "Get real-time stock quotes and technical analysis",
+  "api_url": "http://localhost:8000",
+  "requires_auth": true,
+  "endpoints": {
+    "quote": "/api/market/quote",
+    "technical": "/api/market/technical",
+    "summary": "/api/market/summary"
+  }
+}
