@@ -5,10 +5,12 @@
 功能：遍历所有题材，获取每个题材的股票明细，导出到Excel文件
 """
 
+import os
 import json
 import sys
 import time
 from typing import Any
+from pathlib import Path
 
 # 设置标准输出编码为utf-8，防止Windows下打印特殊字符报错
 if sys.platform == "win32":
@@ -25,12 +27,26 @@ from openpyxl.cell.cell import ILLEGAL_CHARACTERS_RE
 from openpyxl.styles import Alignment, Font, PatternFill
 from openpyxl.utils import get_column_letter
 
-# API配置
+# Load environment variables from .env file if it exists
+env_file = Path(__file__).parent / ".env"
+if env_file.exists():
+    with open(env_file) as f:
+        for line in f:
+            line = line.strip()
+            if line and not line.startswith("#") and "=" in line:
+                key, value = line.split("=", 1)
+                os.environ[key.strip()] = value.strip()
+
+# API配置 - 从环境变量读取，如果不存在则使用默认值
+USER_ID = os.getenv("LONGHUVIP_USER_ID", "397605")
+DEVICE_ID = os.getenv("LONGHUVIP_DEVICE_ID", "548d826f-a2a7-301a-b148-920f31f15331")
+TOKEN = os.getenv("LONGHUVIP_TOKEN", "df9cadb87bbba7d04e9fcbaa2aa229b3")
+
 API_BASE = (
-    "https://applhb.longhuvip.com/w1/api/index.php?"
-    "a=InfoGet&apiv=w43&c=Theme&PhoneOSNew=1&"
-    "UserID=397605&DeviceID=548d826f-a2a7-301a-b148-920f31f15331&"
-    "VerSion=5.22.0.2&Token=df9cadb87bbba7d04e9fcbaa2aa229b3&ID="
+    f"https://applhb.longhuvip.com/w1/api/index.php?"
+    f"a=InfoGet&apiv=w43&c=Theme&PhoneOSNew=1&"
+    f"UserID={USER_ID}&DeviceID={DEVICE_ID}&"
+    f"VerSion=5.22.0.2&Token={TOKEN}&ID="
 )
 
 

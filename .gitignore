@@ -7,6 +7,7 @@ __pycache__/
 
 # Environment Variables (CRITICAL)
 .env
+.env.local
 
 # Data
 Data/*.duckdb
@@ -24,6 +25,11 @@ drivers/trendradar/
 # IDE
 .vscode/
 .idea/
+
+# Theme library output
+tools/theme_library/*.xlsx
+tools/theme_library/.env
+tools/theme_library/log.txt
 
 # Claude Code settings
 .claude/
